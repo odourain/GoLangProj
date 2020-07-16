@@ -13,23 +13,23 @@ type historyBuy struct {
 	history float64
 }
 
-func checkMaps(m1 map[string]float64, m2 map[string]float64) bool {
-	if len(m1) == len(m2) {
-		count := 0
-		for i, v := range m1 {
-			if m2[i] == v {
-				count++
-			}
-		}
-		if count == len(m1) {
-			return true
-		} else {
-			return false
-		}
-	} else {
-		return false
-	}
-}
+//func checkMaps(m1 map[string]float64, m2 map[string]float64) bool {
+//	if len(m1) == len(m2) {
+//		count := 0
+//		for i, v := range m1 {
+//			if m2[i] == v {
+//				count++
+//			}
+//		}
+//		if count == len(m1) {
+//			return true
+//		} else {
+//			return false
+//		}
+//	} else {
+//		return false
+//	}
+//}
 
 func sumList(m map[string]float64) float64 {
 	sum := float64(0)
