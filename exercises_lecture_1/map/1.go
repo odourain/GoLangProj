@@ -1,5 +1,5 @@
 package main
-
+// Есть текст, надо посчитать сколько раз каждое слова встречается.
 import "fmt"
 
 func countWords(s string) map[string]int {

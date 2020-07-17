@@ -1,10 +1,9 @@
 package main
-
+// Есть очень большой массив или slice целых чисел, надо сказать какие числа в нем упоминаются хоть по разу.
 import "fmt"
 
-func findNumbers(mas []int) []int {
+func findNumbers(mas []int) (masEnd []int) {
 	m:= make(map[int]bool)
-	var masEnd []int
 	for _, v := range mas {
 		_, ok := m[v]
 		if !ok {
@@ -12,7 +11,7 @@ func findNumbers(mas []int) []int {
 			masEnd = append(masEnd, v)
 		}
 	}
-	return masEnd
+	return
 }
 
 func main()  {

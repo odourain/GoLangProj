@@ -49,10 +49,6 @@ func addInShopList() func(item string, value float64) map[string]float64 {
 	masBuy := make(map[string]float64)
 	return func(item string, value float64) map[string]float64 {
 		if item != "" {
-			//_, ok := masBuy[item]
-			//if ok {
-			//	fmt.Printf("This item '%s' is already in the list, update it item price = %.1f\n", item, value)
-			//}
 			masBuy[item] = value
 		}
 		return masBuy

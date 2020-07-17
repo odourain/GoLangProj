@@ -1,18 +1,18 @@
 package main
-
+// Есть два больших массива чисел, надо найти, какие числа упоминаются в обоих
 import (
 	"fmt"
 )
 
-func findInt(mas1 []int, mas2 []int) []int {
+func findInt(mas1 []int, mas2 []int) (mas []int) {
 	m := make(map[int]bool)
-	var mas []int
-	for _, v := range mas1 {
-		for _, n := range mas2 {
-			_, ok := m[n]
-			if !ok && v == n{
-				m[v] = true
-				mas = append(mas, n)
+	for i:=0; i<len(mas1); i++ {
+		for j:=0; j<len(mas2); j++ {
+			if _, ok := m[mas2[j]]; !ok && mas1[i] == mas2[j] {
+				m[mas2[j]] = true
+				mas = append(mas, mas2[j])
+				i++
+				j = -1
 			}
 		}
 	}
