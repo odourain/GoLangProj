@@ -1,5 +1,5 @@
 package main
-
+// Тоже, что 9, но сдвиг вправо
 import "fmt"
 
 func shiftRight(slice []int) []int {

@@ -1,5 +1,5 @@
 package main
-
+// Взять последнее число slice, вернуть его пользователю, а из slice этот элемент удалить
 import "fmt"
 
 func main(){

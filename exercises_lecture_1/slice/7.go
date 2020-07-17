@@ -1,13 +1,12 @@
 package main
-
+// Объединить два slice и вернуть новый со всеми элементами первого и второго
 import "fmt"
 
 func splitSlice(slice1 [] int, slice2 [] int) []int {
-	tempSlice := slice1
 	for _,v := range slice2 {
-		tempSlice = append(tempSlice, v)
+		slice1 = append(slice1, v)
 	}
-	return tempSlice
+	return slice1
 }
 
 func main()  {

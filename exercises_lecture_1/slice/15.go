@@ -1,63 +1,33 @@
 package main
 
+// Упорядочить slice в порядке: прямом, обратном, лексикографическом.
 import (
 	"fmt"
+	"sort"
 )
 
 func directOrder(slice []int) []int {
-	check := false
-	for i:=0; i< len(slice)-1; i++ {
-		if slice[i] > slice[i+1] {
-			temp:= slice[i]
-			slice[i] = slice[i+1]
-			slice[i+1] = temp
-			check = true
-		}
-		if check && i+1 == len(slice)-1 {
-			check = false
-			i=-1
-		}
-	}
+	sort.Ints(slice)
 	return slice
 }
 
 func reverseOrder(slice []int) []int {
-	check := false
-	for i:=0; i< len(slice)-1; i++ {
-		if slice[i] < slice[i+1] {
-			temp:= slice[i]
-			slice[i] = slice[i+1]
-			slice[i+1] = temp
-			check = true
-		}
-		if check && i+1 == len(slice)-1 {
-			check = false
-			i=-1
-		}
+	tempSlice := make([]int, 0, len(slice))
+	sort.Ints(slice)
+	for i := len(slice) - 1; i >= 0; i-- {
+		tempSlice = append(tempSlice, slice[i])
 	}
-	return slice
+	return tempSlice
 }
 
 func abcSort(slice []string) []string {
-	check := false
-	for i:=0; i< len(slice)-1; i++ {
-		if slice[i] > slice[i+1] {
-			temp:= slice[i]
-			slice[i] = slice[i+1]
-			slice[i+1] = temp
-			check = true
-		}
-		if check && i+1 == len(slice)-1 {
-			check = false
-			i=-1
-		}
-	}
+	sort.Strings(slice)
 	return slice
 }
 
-func main()  {
-	slice := []int {3, 4, 7, 1, 2, 7, 8, 9, 0}
-	sliceABC := []string {"g","b","s","c","j","y","r","w","s","c","k"}
+func main() {
+	slice := []int{3, 4, 7, 1, 2, 7, 8, 9, 0}
+	sliceABC := []string{"g", "b", "s", "c", "j", "y", "r", "w", "s", "c", "k"}
 	fmt.Println(slice)
 	fmt.Println(directOrder(slice))
 	fmt.Println(reverseOrder(slice))

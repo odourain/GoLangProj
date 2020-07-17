@@ -1,26 +1,15 @@
 package main
-
+// Добавить в начало slice число 5
 import (
 	"fmt"
 )
 
-func addItem(slice []int, location int, item int) []int  {
-	var tempSlice []int
-	if location < 0 || location > len(slice) {
-		fmt.Println("Location > size slice!")
-		return tempSlice
-	}
-	if location == len(slice) {
-		tempSlice = append(slice, item)
-	} else {
-		for i, v := range slice {
-			if i == location {
-				tempSlice = append(tempSlice, item)
-				tempSlice = append(tempSlice, v)
-			} else {
-				tempSlice = append(tempSlice, v)
-			}
+func addItem(slice []int, item int) (tempSlice []int)  {
+	for i, v := range slice{
+		if i == 0 {
+			tempSlice = append(tempSlice, item)
 		}
+		tempSlice = append(tempSlice, v)
 	}
 	return tempSlice
 }
@@ -28,6 +17,6 @@ func addItem(slice []int, location int, item int) []int  {
 func main() {
 	slice := [] int {1, 2, 3, 4}
 	fmt.Println(slice)
-	slice = addItem(slice, 0, 5)
+	slice = addItem(slice, 5)
 	fmt.Println(slice)
 }

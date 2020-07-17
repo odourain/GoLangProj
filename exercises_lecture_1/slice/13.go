@@ -1,5 +1,5 @@
 package main
-
+// Вернуть пользователю копию переданного slice
 import "fmt"
 
 func copySlice(slice []int) []int{

@@ -1,5 +1,5 @@
 package main
-
+// В slice поменять все четные с ближайшими нечетными индексами. 0 и 1, 2 и 3, 4 и 5...
 import "fmt"
 
 func swap(slice []int) []int {

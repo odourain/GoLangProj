@@ -1,9 +1,8 @@
 package main
-
+// Из первого slice удалить все числа, которые есть во втором
 import "fmt"
 
-func deleteSliceOneWithSliceTwo(slice1 []int, slice2 []int) []int  {
-	var tempSlice []int
+func deleteSliceOneWithSliceTwo(slice1 []int, slice2 []int) (tempSlice []int)  {
 	deleteItem := false
 	for _,v := range slice1 {
 		for _,k := range slice2 {

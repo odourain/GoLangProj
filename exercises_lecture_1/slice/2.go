@@ -1,5 +1,5 @@
 package main
-
+// Добавить в конец slice число 5
 import "fmt"
 
 func main()  {

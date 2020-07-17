@@ -1,12 +1,12 @@
 package main
-
+// Тоже, но сдвиг на заданное пользователем i
 import "fmt"
 
 func shiftCustom(slice []int, shift int) []int {
 	tempSlice := make([]int, len(slice))
-	if shift > len(slice) {
-		fmt.Println("Your shift > len slice")
-		return tempSlice
+	if shift > len(slice) || shift < 0 {
+		fmt.Println("Your shift > len slice or < 0")
+		return nil
 	}
 	for i,v := range slice {
 		if i - shift < 0 {

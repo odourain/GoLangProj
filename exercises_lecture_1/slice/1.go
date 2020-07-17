@@ -1,5 +1,5 @@
 package main
-
+// К каждому элементу []int прибавить 1
 import "fmt"
 
 func main()  {
