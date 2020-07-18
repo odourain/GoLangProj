@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func copySlice(slice []int) []int{
-	tempSlice := slice
-	// or only return tempSlice
+	tempSlice := make([]int, len(slice))
+	copy(tempSlice, slice)
 	return tempSlice
 }
 

@@ -3,15 +3,8 @@ package main
 import "fmt"
 
 func shiftRight(slice []int) []int {
-	tempSlice := make([]int, len(slice))
-	for i,v := range slice {
-		if i + 1 > len(slice)-1 {
-			tempSlice[len(slice)-(i+1)] = v
-		} else {
-			tempSlice[i+1] = v
-		}
-	}
-	return tempSlice
+	slice = append(slice[len(slice)-1:], slice[:len(slice)-1]...)
+	return slice
 }
 
 func main()  {

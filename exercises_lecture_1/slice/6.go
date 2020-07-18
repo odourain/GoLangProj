@@ -9,17 +9,12 @@ func printAndDeleteItem(slice []int, location int) (tempSlice []int){
 		return nil
 	}
 	fmt.Println(slice[location])
-	for i, v:= range slice{
-		if i != location {
-			tempSlice = append(tempSlice, v)
-		}
-	}
+	tempSlice = append(slice[:location], slice[location+1])
 	return tempSlice
 }
 
 func main()  {
 	slice := []int {1, 2, 3, 4, 5}
-	fmt.Println(slice)
 	slice = printAndDeleteItem(slice, 3)
 	fmt.Println(slice)
 }

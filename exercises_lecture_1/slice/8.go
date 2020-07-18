@@ -2,20 +2,15 @@ package main
 // Из первого slice удалить все числа, которые есть во втором
 import "fmt"
 
-func deleteSliceOneWithSliceTwo(slice1 []int, slice2 []int) (tempSlice []int)  {
-	deleteItem := false
-	for _,v := range slice1 {
-		for _,k := range slice2 {
-			if v == k {
-				deleteItem = true
+func deleteSliceOneWithSliceTwo(slice1 []int, slice2 []int) (tempSlice []int) {
+	for i, v1 := range slice1 {
+		for _, v2 := range slice2 {
+			if v1 == v2 {
+				slice1 = append(slice1[:i], slice1[i+1:]...)
 			}
 		}
-		if !deleteItem{
-			tempSlice = append(tempSlice, v)
-		}
-		deleteItem = false
 	}
-	return tempSlice
+	return slice1
 }
 
 func main()  {

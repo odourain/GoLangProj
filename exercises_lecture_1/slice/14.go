@@ -5,9 +5,7 @@ import "fmt"
 func swap(slice []int) []int {
 	for i :=0; i<len(slice); i++ {
 		if i+1 < len(slice) {
-			temp := slice[i]
-			slice[i] = slice[i+1]
-			slice[i+1] = temp
+			slice[i], slice[i+1] = slice[i+1], slice[i]
 			i++
 		}
 	}

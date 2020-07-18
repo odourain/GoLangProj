@@ -3,9 +3,7 @@ package main
 import "fmt"
 
 func splitSlice(slice1 [] int, slice2 [] int) []int {
-	for _,v := range slice2 {
-		slice1 = append(slice1, v)
-	}
+	slice1 = append(slice1, slice2[:]...)
 	return slice1
 }
 

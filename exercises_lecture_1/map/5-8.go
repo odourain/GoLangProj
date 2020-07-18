@@ -55,25 +55,27 @@ func addInShopList() func(item string, value float64) map[string]float64 {
 	}
 }
 
-func addListShopsList() func(masBuy func(item string, value float64) map[string]float64) shopListHistory {
+func addListShopsList() func(masBuy *func(item string, value float64) map[string]float64) shopListHistory {
 	listBuys := shopListHistory{
 		make(map[int]shopList),
 		0,
 	}
-	return func(masBuy func(item string, value float64) map[string]float64) shopListHistory {
+	return func(masBuy *func(item string, value float64) map[string]float64) shopListHistory {
 		if masBuy == nil {
 			return listBuys
 		}
 		for i := range listBuys.list {
-			if checkMaps(masBuy("", 0), listBuys.list[i].list) {
+			if checkMaps((*masBuy)("", 0), listBuys.list[i].list) {
+				masBuy = nil
 				return listBuys // cache
 			}
 		}
 		listBuys.list[len(listBuys.list)] = shopList{
-			masBuy("", 0),
+			(*masBuy)("", 0),
 			0,
 		}
 		listBuys = sumPrice(listBuys, len(listBuys.list)-1)
+		masBuy = nil
 		return listBuys
 	}
 }
@@ -233,15 +235,22 @@ func main() {
 	mass31("chocolate", 1.1)
 	mass31("bread", 82.3)
 
+	mass4 := addInShopList()
+	mass3("fish", 11.2)
+	mass3("coffee", 2.1)
+	mass3("a", 3.3)
+
 	sumList := addListShopsList()
-	sumList(mass)
-	sumList(mass2)
-	sumList(mass3)
+	sumList(&mass)
+	sumList(&mass2)
+	sumList(&mass3)
+	sumList(&mass4)
+
 
 	sumList1 := addListShopsList()
-	sumList1(mass1)
-	sumList1(mass21)
-	sumList1(mass31)
+	sumList1(&mass1)
+	sumList1(&mass21)
+	sumList1(&mass31)
 
 	fmt.Println(printBalance(clientList("Putin", sumList(nil))))
 	fmt.Println(printBalance(clientList("Rich", sumList1(nil))))
