@@ -1,22 +1,14 @@
 package main
 // Есть текст, надо посчитать сколько раз каждое слова встречается.
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func countWords(s string) map[string]int {
 	m := make(map[string]int)
-	tempString := ""
-	for i, v := range s {
-		if string(v) == " " && i != 0{
-			_, ok := m[tempString]
-			if ok {
-				m[tempString]++
-			} else {
-				m[tempString] = 1
-			}
-			tempString = ""
-		} else {
-			tempString += string(v)
-		}
+	for _, v := range strings.Fields(s) {
+		m[v]++
 	}
 	return m
 }
