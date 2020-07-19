@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func deleteSliceOneWithSliceTwo(slice1 []int, slice2 []int) (tempSlice []int) {
-	for i, v1 := range slice1 {
-		for _, v2 := range slice2 {
+	for _, v1 := range slice2 {
+		for i, v2 := range slice1 {
 			if v1 == v2 {
 				slice1 = append(slice1[:i], slice1[i+1:]...)
 			}
